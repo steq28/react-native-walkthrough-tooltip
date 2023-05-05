@@ -4,6 +4,8 @@ import {
   Dimensions,
   InteractionManager,
   Modal,
+  Pressable,
+  Text,
   TouchableWithoutFeedback,
   View,
 } from 'react-native';
@@ -22,6 +24,8 @@ import {
 } from './geom';
 import styleGenerator from './styles';
 import TooltipChildrenContext from './tooltip-children.context';
+import { colors } from '../../../src/constants/colors';
+
 
 export { TooltipChildrenContext };
 
@@ -54,7 +58,7 @@ class Tooltip extends Component {
   static defaultProps = {
     allowChildInteraction: true,
     arrowSize: new Size(16, 8),
-    backgroundColor: 'rgba(0,0,0,0.5)',
+    backgroundColor: 'rgba(0,0,0,0)',
     childContentSpacing: 4,
     children: null,
     closeOnChildInteraction: true,
@@ -397,6 +401,7 @@ class Tooltip extends Component {
     );
   };
 
+
   renderContentForTooltip = () => {
     const generatedStyles = styleGenerator({
       adjustedContentSize: this.state.adjustedContentSize,
@@ -409,6 +414,8 @@ class Tooltip extends Component {
       tooltipOrigin: this.state.tooltipOrigin,
       topAdjustment: this.props.topAdjustment,
     });
+
+    
 
     const hasChildren = React.Children.count(this.props.children) > 0;
 
@@ -432,7 +439,7 @@ class Tooltip extends Component {
         <View style={generatedStyles.containerStyle}>
           <View style={[generatedStyles.backgroundStyle]}>
             <View style={generatedStyles.tooltipStyle}>
-              {hasChildren ? <View style={generatedStyles.arrowStyle} /> : null}
+              {/*hasChildren ? <View style={generatedStyles.arrowStyle} /> : null*/}
               <View
                 onLayout={this.measureContent}
                 style={generatedStyles.contentStyle}
@@ -466,14 +473,18 @@ class Tooltip extends Component {
     const showTooltip = isVisible && !this.state.waitingForInteractions;
     const ModalComponent = modalComponent || Modal;
 
+
     return (
       <React.Fragment>
         {useReactNativeModal ? (
           <ModalComponent
             transparent
             visible={showTooltip}
+            hardwareAccelerated={true}
+            animationType="fade"
             onRequestClose={this.props.onClose}
             supportedOrientations={this.props.supportedOrientations}
+
           >
             {this.renderContentForTooltip()}
           </ModalComponent>
