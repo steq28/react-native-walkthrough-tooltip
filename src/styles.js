@@ -1,4 +1,6 @@
-import { StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
+
+const {width} = Dimensions.get("window")
 
 const styles = StyleSheet.create({
   container: {
@@ -16,6 +18,11 @@ const styles = StyleSheet.create({
   tooltip: {
     backgroundColor: 'transparent',
     position: 'absolute',
+    maxWidth : width*0.7,
+    width: "auto",
+    //alignSelf:"center",
+    //marginLeft:-4,
+    //marginRight:24
   },
   shadow: {
     shadowColor: 'black',

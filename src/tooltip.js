@@ -5,6 +5,7 @@ import {
   InteractionManager,
   Modal,
   Pressable,
+  ScrollView,
   Text,
   TouchableWithoutFeedback,
   View,
@@ -440,7 +441,7 @@ class Tooltip extends Component {
           <View style={[generatedStyles.backgroundStyle]}>
             <View style={generatedStyles.tooltipStyle}>
               {/*hasChildren ? <View style={generatedStyles.arrowStyle} /> : null*/}
-              <View
+              <ScrollView
                 onLayout={this.measureContent}
                 style={generatedStyles.contentStyle}
               >
@@ -450,7 +451,7 @@ class Tooltip extends Component {
                 >
                   {this.props.content}
                 </TouchableWithoutFeedback>
-              </View>
+              </ScrollView>
             </View>
           </View>
           {hasChildren && this.props.showChildInTooltip
@@ -484,7 +485,6 @@ class Tooltip extends Component {
             animationType="fade"
             onRequestClose={this.props.onClose}
             supportedOrientations={this.props.supportedOrientations}
-
           >
             {this.renderContentForTooltip()}
           </ModalComponent>
