@@ -18,17 +18,17 @@ const styles = StyleSheet.create({
   tooltip: {
     backgroundColor: 'transparent',
     position: 'absolute',
-    maxWidth : width*0.7,
-    width: "auto",
+    maxWidth : width * 0.7,
+    width: width * 0.7,
     //alignSelf:"center",
     //marginLeft:-4,
     //marginRight:24
   },
   shadow: {
-    shadowColor: 'black',
+    /*shadowColor: 'black',
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 2,
-    shadowOpacity: 0.8,
+    shadowOpacity: 0.8,*/
   },
   content: {
     borderRadius: 4,
