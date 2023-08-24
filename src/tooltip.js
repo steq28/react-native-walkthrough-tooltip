@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { StatusBar } from 'react-native'
 import {
   Dimensions,
   InteractionManager,
@@ -79,7 +80,7 @@ class Tooltip extends Component {
     supportedOrientations: ['portrait', 'landscape'],
     useInteractionManager: false,
     useReactNativeModal: true,
-    topAdjustment: 0,
+    topAdjustment: -StatusBar.currentHeight,
     horizontalAdjustment: 0,
     accessible: true,
   };
@@ -495,7 +496,7 @@ class Tooltip extends Component {
           <View
             ref={this.childWrapper}
             onLayout={this.measureChildRect}
-            style={this.props.parentWrapperStyle}
+            style={[this.props.parentWrapperStyle]}
           >
             {children}
           </View>
