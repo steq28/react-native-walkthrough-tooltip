@@ -443,6 +443,8 @@ class Tooltip extends Component {
             <View style={generatedStyles.tooltipStyle}>
               {/*hasChildren ? <View style={generatedStyles.arrowStyle} /> : null*/}
               <ScrollView
+                showsVerticalScrollIndicator={false}
+                showsHorizontalScrollIndicator={false}
                 onLayout={this.measureContent}
                 style={generatedStyles.contentStyle}
               >

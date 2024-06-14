@@ -18,8 +18,8 @@ const styles = StyleSheet.create({
   tooltip: {
     backgroundColor: 'transparent',
     position: 'absolute',
-    maxWidth : width * 0.72,
-    width: width * 0.72,
+    maxWidth : width * 0.82,
+    width: width * 0.82,
     height:"auto",
     //alignSelf:"center",
     //marginLeft:-4,
